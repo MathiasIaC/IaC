@@ -1,0 +1,20 @@
+name: Test Azure Login
+
+on:
+  push:
+    branches: [ dev, test, prod ]
+
+jobs:
+  test-azure-login:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log in to Azure using Federated Credentials
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.CLIENT_ID }}
+          tenant-id: ${{ secrets.TENANT_ID }}
+          subscription-id: ${{ secrets.SUBSCRIPTION_ID }}
+          federated-credentials: true
+
+      - name: Show Azure account
+        run: az account show

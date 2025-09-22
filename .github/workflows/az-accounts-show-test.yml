@@ -2,7 +2,7 @@ name: Test Azure Login
 
 on:
   push:
-    branches: [ dev, test, prod ]
+    branches: [ main ]
 
 jobs:
   test-azure-login:

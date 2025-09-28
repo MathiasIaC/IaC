@@ -1,0 +1,16 @@
+Terraform kommandoer:
+
+Terraform init - initialiserer terraform i mappen hvor main.tf er - kjør først
+
+Terraform fmt - formaterer filene i god struktur
+
+Terraform validate - Sjekker om konfigurasjon er valid og klar til deploy
+
+Terraform plan - viser hva som skal skje, evt feil dukker opp
+ - Kan legge til plan -out="plan-navn" for å lage en plan med navn
+
+Terraform apply - Deployer planen og endringene
+ - Kan legge til "plan-navn" hvis brukt dette for å utføre den planen
+
+Terraform destroy - Fjern deployen etter testing
+ - for å destroye prod/dev "terraform destroy -var-file="terraform.tfvars.dev"

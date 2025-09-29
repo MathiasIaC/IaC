@@ -52,13 +52,22 @@ jobs:
 
       - name: Terraform Init
         working-directory: ${{ env.WORKDIR }}
-        run: terraform init -backend-config=$GITHUB_WORKSPACE/projects/shared/backend.hcl -input=false
+        run: terraform init \
+              -backend-config=$GITHUB_WORKSPACE/projects/shared/backend.hcl \
+              -backend-config="key=prod/terraform.tfstate" \
+              -input=false
 
       - name: Terraform Plan
         working-directory: ${{ env.WORKDIR }}
-        run: terraform plan -backend-config=$GITHUB_WORKSPACE/projects/shared/backend.hcl -input=false
+        run: terraform plan \
+              -backend-config=$GITHUB_WORKSPACE/projects/shared/backend.hcl \
+              -backend-config="key=prod/terraform.tfstate" \
+              -input=false
 
       - name: Terraform Apply (only on main)
         if: github.ref == 'refs/heads/main'
         working-directory: ${{ env.WORKDIR }}
-        run: terraform apply -backend-config=$GITHUB_WORKSPACE/projects/shared/backend.hcl -auto-approve -input=false
+        run: terraform apply \
+              -backend-config=$GITHUB_WORKSPACE/projects/shared/backend.hcl \
+              -backend-config="key=prod/terraform.tfstate" \
+              -auto-approve -input=false

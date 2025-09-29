@@ -1,14 +1,14 @@
-name: terraform-rg-kv
+name: terraform-rg-kv-destroy
 
 on:
-  workflow_dispatch: {}  # manuell trigger i starten
+  workflow_dispatch: {}  # manuell trigger
 
 permissions:
   id-token: write
   contents: read
 
 jobs:
-  apply:
+  destroy:
     runs-on: ubuntu-latest
     environment: dev
     env:
@@ -52,17 +52,12 @@ jobs:
 
       - name: Terraform Init
         working-directory: ${{ env.WORKDIR }}
-        run: | 
+        run: |
           terraform init \
             -backend-config=$GITHUB_WORKSPACE/projects/shared/backend.hcl \
             -backend-config="key=prod/terraform.tfstate" \
             -input=false
 
-      - name: Terraform Plan
+      - name: Terraform Destroy
         working-directory: ${{ env.WORKDIR }}
-        run: terraform plan -input=false
-
-      - name: Terraform Apply (only on main)
-        if: github.ref == 'refs/heads/main'
-        working-directory: ${{ env.WORKDIR }}
-        run: terraform apply  -auto-approve -input=false
+        run: terraform destroy -auto-approve -input=false

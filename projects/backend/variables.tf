@@ -1,7 +1,6 @@
 variable "subscription_id" {
   description = "Azure subscription to deploy into. If omitted, provider will use CLI default subscription."
   type        = string
-  default     = ""
 }
 
 variable "location" {

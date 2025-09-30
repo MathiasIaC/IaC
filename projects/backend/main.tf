@@ -1,11 +1,10 @@
 terraform {
   required_version = ">= 1.6.0"
 
-  /* backend "azurerm" {
-    # see backend.hcl for non-secret settings
-    # use_azuread_auth = true  # uncomment to use Azure AD auth (instead of access key)
+ backend "azurerm" {
+   # Må ha med backend blokk for å kunne migrere state til azurerm
   } 
-*/
+
 
   required_providers {
     azurerm = {

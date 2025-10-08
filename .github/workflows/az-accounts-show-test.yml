@@ -4,7 +4,7 @@ on: [push]
 jobs:
   test:
     # Viktig: gi jobben et miljønavn som matcher federated credential i Azure
-    environment: dev
+    environment: prod
 
     permissions:
       id-token: write

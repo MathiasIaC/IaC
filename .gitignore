@@ -38,3 +38,6 @@ terraform.rc
 
 # Ignore workspace files
 Iac.code-workspace
+
+# Ignore shared backend configuration file
+backend.hcl

@@ -41,3 +41,4 @@ Iac.code-workspace
 
 # Ignore shared backend configuration file
 backend.hcl
+projects/shared/backend.hcl

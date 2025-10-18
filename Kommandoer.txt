@@ -21,3 +21,22 @@ git checkout -b feature/terraform-(...)
 - gjør endringer og commit
 - create pull request og følg instrukser i github
 - delete branch på github og lokalt: git checkout -b feature/terraform-(...)
+- git fetch --prune
+
+Når en ny versjon av main er oppe å kjører:
+git tag -a oblig2-v(2.0.0) -m "Oblig2 Release v(2.0.0)>> features: (-Add tag to RG)
+>> Deployment status: (OK)
+>> Verfied all environments: (OK)"
+
+git push origin oblig2-v(2.0.0)
+
+Sjekke alle tags/verjsoner:
+- git tag -l "oblig2-*" --sort=creatordate
+
+Sjekke forskjeller mellom versjoner:
+- git log oblig2-v(2.0.0)..oblig2-v(2.1.0) --oneline
+- git show (id)
+- git show oblig2-v(2.0.0) / viser tag melding
+- Skriv "q" hvis man vil ut 
+
+

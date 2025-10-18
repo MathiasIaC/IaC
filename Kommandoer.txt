@@ -29,6 +29,7 @@ git tag -a oblig2-v(2.0.0) -m "Oblig2 Release v(2.0.0)>> features: (-Add tag to 
 >> Verfied all environments: (OK)"
 
 git push origin oblig2-v(2.0.0)
+Gå inn på github og draft new relaease
 
 Sjekke alle tags/verjsoner:
 - git tag -l "oblig2-*" --sort=creatordate
@@ -38,5 +39,16 @@ Sjekke forskjeller mellom versjoner:
 - git show (id)
 - git show oblig2-v(2.0.0) / viser tag melding
 - Skriv "q" hvis man vil ut 
+
+Rollback til en annen versjon:
+- Lag ny branch: git checkout -b hotfix/rollback-to-v(2.0.0)
+- git checkout oblig2-v(2.0.0) --(terraform)
+- git status eller git diff --staged / ser hva som er endret 
+- git commit -m "Rollback to v2.0.0 configuration"
+- git push origin hotfix/rollback-to-v(2.0.0)
+- samme gjennomgang ved vanlig push av ny kode
+- git checkout main
+- git pull origin main
+- Legg til ny tag for rollbacken og draft denne som release 
 
 

@@ -148,10 +148,10 @@ function Remove-AzureResourcesForce {
         Write-Host ""
         Write-Host "Available resource groups:" -ForegroundColor Cyan
         
-        $resourceGroups = az group list --query "[?starts_with(name, 'rg-demo-')]" | ConvertFrom-Json
+        $resourceGroups = az group list --query "[?starts_with(name, 'rg-mk-')]" | ConvertFrom-Json
         
         if ($resourceGroups.Count -eq 0) {
-            Write-Host "No resource groups found with prefix 'rg-demo-'" -ForegroundColor Gray
+            Write-Host "No resource groups found with prefix 'rg-mk-'" -ForegroundColor Gray
             return
         }
         

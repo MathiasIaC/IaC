@@ -1,2 +1,2 @@
 # Oblig 2 gjennomgang
-Ny test
+Test om alt funker som det skal 

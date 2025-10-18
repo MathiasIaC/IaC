@@ -14,3 +14,10 @@ Terraform apply - Deployer planen og endringene
 
 Terraform destroy - Fjern deployen etter testing
  - for å destroye prod/dev "terraform destroy -var-file="terraform.tfvars.dev"
+
+Endringer og videre utvikling av kode:
+git branch
+git checkout -b feature/terraform-(...)
+- gjør endringer og commit
+- create pull request og følg instrukser i github
+- delete branch på github og lokalt: git checkout -b feature/terraform-(...)

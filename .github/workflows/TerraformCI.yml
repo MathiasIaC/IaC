@@ -1,7 +1,7 @@
 name: Terraform CI
 
 on:
-  push:
+  pull_request:
     branches: 
       - main
     paths:
@@ -18,7 +18,7 @@ jobs:
     environment: dev
     env:
       WORKDIR: "projects/oblig2/mk-terraform-project"
-      BACKEND_HCL: "projects/shared/backend.hcl"
+      BACKEND_HCL: "projects/oblig2/mk-terraform-project/shared/backend.hcl"
       TF_INPUT: "false"
       TF_IN_AUTOMATION: "true"
       
@@ -76,7 +76,7 @@ jobs:
     environment: ${{ matrix.environment }}
     env:
       WORKDIR: "projects/oblig2/mk-terraform-project"
-      BACKEND_HCL: "projects/shared/backend.hcl"
+      BACKEND_HCL: "projects/oblig2/mk-terraform-project/shared/backend.hcl"
       TF_INPUT: "false"
       TF_IN_AUTOMATION: "true"
     

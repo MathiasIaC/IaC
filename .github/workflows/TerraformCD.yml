@@ -172,7 +172,7 @@ jobs:
       PROJECT_NAME: "oblig2"
       SUFFIX: "dut"
       OWNER: "mk"
-      STORAGE_TIER: "Premium"
+      STORAGE_TIER: "Standard"
       REPLICATION_TYPE: "GRS"
     
     steps:

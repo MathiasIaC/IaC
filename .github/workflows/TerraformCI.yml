@@ -146,7 +146,7 @@ jobs:
               echo "PROJECT_NAME=oblig2" >> $GITHUB_ENV
               echo "SUFFIX=dut" >> $GITHUB_ENV
               echo "OWNER=mk" >> $GITHUB_ENV
-              echo "STORAGE_TIER=Premium" >> $GITHUB_ENV
+              echo "STORAGE_TIER=Standard" >> $GITHUB_ENV
               echo "REPLICATION_TYPE=GRS" >> $GITHUB_ENV
               ;;
           esac

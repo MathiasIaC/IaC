@@ -8,7 +8,6 @@ resource "azurerm_resource_group" "main" {
     ManagedBy   = "Terraform"
     Project     = var.project_name
     Owner       = var.owner
-    Test        = "mk-test"
   }
 }
 

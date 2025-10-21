@@ -31,7 +31,7 @@
 ## Oppsett av filstrukur
 
 I oppgaven har jeg brukt scriptet "deploy-files-and-folders.ps1"
-Benytter meg kun av filene terraform og shared for selve oppgave besvarelsen
+Benytter meg kun av filene terraform og shared for selve oppgave besvarelsen og basert på de tre skriptsa som var vedlagt, lagde jeg et eget (med hjelp av copilot), som fungerer lettvint for lokal testing. 
 Terraform inneholder hele azure strukturen og ressursene som blir opprettet dersom workflowene fullføres.
 
 ## Main.tf, variables.tf og locals.tf
@@ -44,13 +44,19 @@ OBS! I prod skal storage tier egentlig være Premium, men denne kan ikke opprett
 Outputs viser hva som skal vises i terminal når en av environmentsa har blitt opprettet
 
 ## Backend.tf og versions.tf
-backend trengs bare fordi man benytter seg av en backend som allerede er opprettet og kan hentes i backend.hcl
-
-versions.tf brukes for å sette hvilke versjoner av terraform som skal benyttes i deployering av kode i azure.
+backend trengs bare fordi man benytter seg av en backend som allerede er opprettet og kan hentes i backend.hcl.
+Versions.tf brukes for å sette hvilke versjoner av terraform som skal benyttes i deployering av kode i azure.
 
 ## shared fil
 Denne inneholder en shared backenc.hcl som brukes for å lagre state filer for environments remote slik at flere kan jobbe mot samme prosjekt.
-Har så langt inne hatt noen secrets som bør beskyttes så benytter meg ikke av key vault i denne oppgaven.
+Har så langt ikke hatt noen secrets som bør beskyttes så benytter meg ikke av key vault i denne oppgaven.
+
+## Scripts terraform-local-testing.ps1 / backend-configs / environments
+Skriptet er laget for enkel lokal testing av 'fmt','init','validate','plan','apply','destroy' for hvert miljø (dev, test, prod).
+Skriptet kjøres med argument for miljø og action, pluss autoapprove når nødvendig.
+Skriptet kreves at man er logget inn med az login for å få tilgang på riktig subscription_id, hvis ikke så stopper skriptet. 
+Backend-configs og environments filene brukes bare ved lokal testing (bruk av script), trengs ikke ved push og opprettelse i github.
+Det vil si at backend-configs brukes for å finne backend hvor state filer skal lagres istedet for lokalt. Videre skal environments gi ulike verdier for de ulike miljøene slik at prod får bedre ressurser enn dev. Dette gir fleksibilitet for de ulike miljøene og gjør koden gjenbrukbar.  
 
 ## .yaml-filer (.github/workflows mappen)
 I Oppgaven benyttes TerraformCD og TerraformCI

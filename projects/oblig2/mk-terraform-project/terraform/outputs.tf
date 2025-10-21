@@ -13,6 +13,11 @@ output "storage_account_endpoint" {
   value       = azurerm_storage_account.main.primary_blob_endpoint
 }
 
+output "storage_account_container_name" {
+  description = "Name of the storage container"
+  value       = azurerm_storage_container.main.name
+}
+
 output "environment" {
   description = "Deployed environment"
   value       = var.environment

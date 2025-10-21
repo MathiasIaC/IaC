@@ -15,7 +15,7 @@ output "storage_account_endpoint" {
 
 output "storage_account_container_name" {
   description = "Name of the storage container"
-  value       = azurerm_storage_container.main.name
+  value       = azurerm_storage_container.demo.name
 }
 
 output "environment" {
